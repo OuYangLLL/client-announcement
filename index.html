@@ -1,52 +1,172 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<title>推廣公告</title>
+<title>絕對可用版</title>
 <style>
-body{max-width:960px;margin:40px auto;padding:0 20px;font-family:Microsoft YaHei, Arial, sans-serif;line-height:1.6;color:#333}
-h1{color:#222;border-bottom:2px solid #0078d4;padding-bottom:10px}
-h2{margin-top:30px;color:#222}
-.notice{background:#f7f9fa;padding:15px 20px;border-radius:6px;margin:15px 0}
-.download-area{margin:20px 0}
-.download-area a{
-  display:inline-block;background:#0078d4;color:#fff;
-  padding:8px 16px;border-radius:4px;text-decoration:none;
-  margin:6px 8px 6px 0
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { padding-left:40px; font-size:16px; line-height:1.7; }
+
+  /* 左邊整條都是感應區 → 鼠標一過去就打開 */
+  .left-area {
+    position:fixed;
+    left:0; top:0;
+    width:40px;
+    height:100vh;
+    z-index:999;
+  }
+
+  /* 目錄本體 */
+  .sidebar {
+    position:fixed;
+    left:-280px; top:0;
+    width:280px; height:100vh;
+    background:#f8f9fa;
+    border-right:1px solid #ccc;
+    padding:20px;
+    transition:0.3s;
+    overflow-y:auto;
+  }
+
+  /* 重點：鼠標移到左邊 → 目錄直接出來 */
+  .left-area:hover .sidebar {
+    left:0 !important;
+  }
+
+  /* 提示文字（完整看得到） */
+  .tip {
+    position:fixed;
+    left:0; top:50%;
+    transform:translateY(-50%);
+    background:#007bff;
+    color:white;
+    writing-mode:vertical-rl;
+    padding:10px 6px;
+    border-radius:0 6px 6px 0;
+  }
+
+  /* 目錄樣式 */
+  #toc { list-style:none; }
+  #toc li { margin:6px 0; }
+  #toc a { color:#0066cc; text-decoration:none; }
+  #toc ul { padding-left:20px; }
+
+  /* 內文 */
+  .content {
+    max-width:850px;
+    margin:40px auto;
+    padding:0 20px;
+  }
+  
+  /* 只對 class="link-box" 生效 */
+  .link-box {
+    border: 1px solid #3b82f6;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #3b82f6;
+    display: inline-block;
+    margin: 10px 0; /* 框與上下距離 */
 }
-.download-area a:hover{background:#005a9e}
-.history{margin-top:50px}
-.history ul{list-style:none;padding-left:0}
-.history li{margin:10px 0}
-.history a{color:#0066cc;text-decoration:none;font-size:16px}
-.history a:hover{text-decoration:underline}
+.link-box:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+  
 </style>
 </head>
-
 <body>
-<h1>忠意(Generali)</h1>
-<h2>【優利預存(預扣)】</h2>
-<div class="notice">
-港簽安排：2026年06月30日(二) 12:00 前<br>
-信託安排：建議於港簽截止日前9個工作天寄抵香港<br>
-繕發日期：建議2026年08月30日或之前<br>
+
+<!-- 左邊感應區 -->
+<div class="left-area">
+  <div class="tip">導航目錄</div>
+  <div class="sidebar">
+    <h3>目錄大綱</h3>
+    <ul id="toc"></ul>
+  </div>
 </div>
 
-<div class="download-area">
-<strong>当期文件下载：</strong><br>
-<a href="https://github.com/ouyanglll/client-announcement/releases/download/2026Q2/2026Q2.PDF.promotion.offer_ENTC.pdf" target="_blank">报表A.pdf</a>
-<a href="2026q1/报表B.pdf" target="_blank">报表B.pdf</a>
-<a href="2026q1/附件C.pdf" target="_blank">附件C.pdf</a>
+<!-- 內文 -->
+<div class="content">
+  <h2>忠意(Generali)</h2>
+  <h3>【優利預存(預扣)】</h3>
+   港簽安排：2026年06月30日(二) 12:00 前<br>
+   信託安排：建議於港簽截止日前9個工作天寄抵香港<br>
+   繕發日期：建議2026年08月30日或之前<br>
+   <img src="images/generali-picture-01.jpg" alt="generali-優利預存">
+   <div class="download-area">
+     <strong>詳見附件：</strong><br>
+     <a href="https://github.com/ouyanglll/client-announcement/releases/download/2026Q2/2026Q2.PDF.promotion.offer_ENTC.pdf" target="_blank" class="link-box">2026Q2 優利預存.pdf</a><br>
+   </div>
+
+  <h3>【保費回贈】</h3>
+   港簽安排：2026年06月30日(二) 12:00 前<br>
+   信託安排：建議於港簽截止日前9個工作天寄抵香港<br>
+   繕發日期：建議2026年08月30日或之前<br>
+   <img src="images/generali-picture-02.jpg" alt="generali-保費回贈">
+    <div class="download-area">
+     <strong>詳見附件：</strong><br>
+	 <a href="https://github.com/ouyanglll/client-announcement/releases/download/2026Q2/2026Q2.PDF.promotion.offer_ENTC.pdf" target="_blank" class="link-box">2026Q2 保費回贈.pdf</a>
+   </div>
 </div>
 
-<div class="history">
-<h2>历史文件归档</h2>
-<ul>
-<li><a href="history/2025q3/" target="_blank">2025年第三季度（全部文件）</a></li>
-<li><a href="history/2025q2/" target="_blank">2025年第二季度（全部文件）</a></li>
-<li><a href="history/2025q1/" target="_blank">2025年第一季度（全部文件）</a></li>
-</ul>
+<div class="content">
+  <h2>忠意(Generali)</h2>
+  <h3>【優利預存(預扣)】</h3>
+   港簽安排：2026年06月30日(二) 12:00 前<br>
+   信託安排：建議於港簽截止日前9個工作天寄抵香港<br>
+   繕發日期：建議2026年08月30日或之前<br>
+   <img src="images/generali-picture-01.jpg" alt="generali-優利預存">
+  <h3>【保費回贈】</h3>
+   港簽安排：2026年06月30日(二) 12:00 前<br>
+   信託安排：建議於港簽截止日前9個工作天寄抵香港<br>
+   繕發日期：建議2026年08月30日或之前<br>
+   <img src="images/generali-picture-02.jpg" alt="generali-保費回贈">
 </div>
+
+<div class="content">
+  <h1>專題研究報告</h1>
+  <h2>1 專題緒論</h2>
+  <h3>1.1 研究背景</h3>
+  <h3>1.2 研究動機</h3>
+  <h2>2 研究方法</h2>
+  <h3>2.1 文獻探討</h3>
+  <h3>2.2 實驗流程</h3>
+  <h2>3 研究結果</h2>
+  <h2>4 結論與建議</h2>
+</div>
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const toc = document.getElementById('toc');
+  const hs = document.querySelectorAll('.content h2,.content h3');
+  let last;
+
+  hs.forEach((h,i)=>{
+    h.id='h'+i;
+    const li=document.createElement('li');
+    const a=document.createElement('a');
+    a.href='#'+h.id;
+    a.textContent=h.textContent;
+    li.appendChild(a);
+
+    if(h.tagName=='H2'){
+      toc.appendChild(li);
+      last=li;
+    }else{
+      if(!last.querySelector('ul'))last.appendChild(document.createElement('ul'));
+      last.querySelector('ul').appendChild(li);
+    }
+  });
+});
+</script>
 
 </body>
 </html>
